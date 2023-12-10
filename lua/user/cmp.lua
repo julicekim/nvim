@@ -32,6 +32,7 @@ local kind_icons = {
   Enum = "",
   Keyword = "",
   Snippet = "",
+  Copilot = "",
   Color = "",
   File = "",
   Reference = "",
@@ -105,15 +106,17 @@ cmp.setup {
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
+        copilot = "[Copilot]",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
+    {name = "copilot", group_index = 2},
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "path", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+    { name = "buffer", group_index = 3 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
