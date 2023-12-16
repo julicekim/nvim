@@ -9,7 +9,7 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
   debug = true,
   sources = {
-    formatting.prettier.with({ extra_args = {"--jsx-single-quote" } }),
+    formatting.prettier.with({ extra_args = {"--single-quote", "--jsx-single-quote" } }),
     formatting.black.with({ extra_args = { "--fast" } }),
     formatting.stylua,
     diagnostics.eslint_d,
