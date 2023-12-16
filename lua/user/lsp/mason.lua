@@ -5,7 +5,6 @@ local servers = {
   "gopls",
   "svelte",
   "erlangls",
-  "eslint",
   "tsserver",
   -- "bashls",
   -- "cssls",
