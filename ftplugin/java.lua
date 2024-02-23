@@ -1,8 +1,8 @@
 local jdtls_dir = vim.fn.stdpath("data") .. "/mason/share/jdtls"
 local config_dir = jdtls_dir .. "/config"
-local plugins_dir = jdtls_dir .. "/plugins"
+local plugins_dir = jdtls_dir .. "/plugins/"
 local path_to_jar = plugins_dir .. "org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar"
-local path_lombok_jar = jdtls_dir .. "lombok.jar"
+local path_lombok_jar = jdtls_dir .. "/lombok.jar"
 
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 
@@ -27,7 +27,7 @@ local config = {
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
 		"-Dlog.protocol=true",
 		"-Dlog.level=ALL",
-    "javaagent:" .. path_lombok_jar,
+		-- "javaagent:" .. path_lombok_jar,
 		"-Xmx1g",
 		"--add-modules=ALL-SYSTEM",
 		"--add-opens",
@@ -35,11 +35,11 @@ local config = {
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
 
-		"--jar",
+		"-jar",
 		path_to_jar,
-		"--configuration",
+		"-configuration",
 		config_dir,
-		"--data",
+		"-data",
 		workspace_dir,
 	},
 	root_dir = root_dir,
@@ -83,8 +83,8 @@ local config = {
 	},
 }
 
-config['on_attach'] = function(client, bufnr)
-  require("user.lsp.handlers").map_java_keys(bufnr)
+config["on_attach"] = function(client, bufnr)
+	require("user.lsp.handlers").map_java_keys(bufnr)
 end
 
 require("jdtls").start_or_attach(config)

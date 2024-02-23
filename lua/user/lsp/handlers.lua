@@ -78,24 +78,10 @@ end
 
 M.map_java_keys = function(bufnr)
 
-  lsp_keymaps(bufnr)
+	local opts = { noremap = true, silent = true }
+	local keymap = vim.api.nvim_buf_set_keymap
 
-  local spring_boot_run = {
-    "spring-boot:run",
-    "-Dspring-boot.run.jvmArguments=-Dspring.profiles.active=local",
-  }
-  local command = ':lua require("toggleterm").exec("'..spring_boot_run..'")<CR>'
-  keymap('n', '<leader>sr', command)
-
-  keymap('n','<A-o>', ':lua require("jdtls).organize_imports()<CR>')
-  keymap('n','crv', ':lua require("jdtls).extract_variable()<CR>')
-
--- nnoremap <A-o> <Cmd>lua require'jdtls'.organize_imports()<CR>
--- nnoremap crv <Cmd>lua require('jdtls').extract_variable()<CR>
--- vnoremap crv <Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>
--- nnoremap crc <Cmd>lua require('jdtls').extract_constant()<CR>
--- vnoremap crc <Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>
--- vnoremap crm <Esc><Cmd>lua require('jdtls').extract_method(true)<CR>
+  keymap(bufnr, 'n','<leader>oi', '<cmd>lua require("jdtls").organize_imports()<CR>', opts)
 
 end
 
@@ -117,5 +103,4 @@ M.on_attach = function(client, bufnr)
 
 	illuminate.on_attach(client)
 end
-
 return M
