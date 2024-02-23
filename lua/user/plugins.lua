@@ -103,6 +103,9 @@ return packer.startup(function(use)
   -- DAP
   use({ "mfussenegger/nvim-dap" })
 
+  -- java
+  use({'mfussenegger/nvim-jdtls'})
+
   -- copilot
   use({
     "zbirenbaum/copilot.lua",

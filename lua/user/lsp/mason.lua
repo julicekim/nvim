@@ -6,6 +6,7 @@ local servers = {
   "svelte",
   "erlangls",
   "tsserver",
+  "jdtls"
   -- "bashls",
   -- "cssls",
   -- "html",

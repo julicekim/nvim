@@ -1,14 +1,17 @@
-local opts = { noremap = true, silent = true }
+local P = {}
+keymap = P
 
-local term_opts = { silent = true }
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = "\\"
+
+
+local opts = { noremap = true, silent = true }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = "\\"
 
 -- Modes
 --   normal_mode = "n",
@@ -67,4 +70,3 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
