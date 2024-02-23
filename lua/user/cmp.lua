@@ -15,14 +15,14 @@ local check_backspace = function()
 	return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
---   פּ ﯟ   some other good icons
+-- find more here: https://www.nerdfonts.com/cheat-sheet
 local kind_icons = {
-	Text = "",
+	Text = "󰊄",
 	Method = "m",
-	Function = "",
+	Function = "󰊕",
 	Constructor = "",
 	Field = "",
-	Variable = "",
+	Variable = "󰫧",
 	Class = "",
 	Interface = "",
 	Module = "",
@@ -32,19 +32,18 @@ local kind_icons = {
 	Enum = "",
 	Keyword = "",
 	Snippet = "",
-	Copilot = "ﯟ",
+	Copilot = "",
 	Color = "",
-	File = "",
+	File = "",
 	Reference = "",
-	Folder = "",
+	Folder = "",
 	EnumMember = "",
-	Constant = "",
+	Constant = "",
 	Struct = "",
 	Event = "",
-	Operator = "",
-	TypeParameter = "",
+	Operator = "",
+	TypeParameter = "",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup({
 	snippet = {
