@@ -6,7 +6,7 @@ local servers = {
   "svelte",
   "erlangls",
   "tsserver",
-  "jdtls"
+  -- "jdtls"
   -- "bashls",
   -- "cssls",
   -- "html",
@@ -17,9 +17,9 @@ local settings = {
   ui = {
     border = "none",
     icons = {
-      package_installed = "◍",
+      package_installed = "",
       package_pending = "◍",
-      package_uninstalled = "◍",
+      package_uninstalled = "󱧗",
     },
   },
   log_level = vim.log.levels.INFO,

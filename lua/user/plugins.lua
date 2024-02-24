@@ -102,7 +102,8 @@ return packer.startup(function(use)
 	use({ "lewis6991/gitsigns.nvim" })
 
 	-- DAP
-	use({ "mfussenegger/nvim-dap" })
+	use({ "folke/neodev.nvim" })
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- java
 	use({ "mfussenegger/nvim-jdtls" })

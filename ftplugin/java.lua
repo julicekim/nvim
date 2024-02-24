@@ -27,13 +27,13 @@ local config = {
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
 		"-Dlog.protocol=true",
 		"-Dlog.level=ALL",
-		-- "javaagent:" .. path_lombok_jar,
 		"-Xmx1g",
 		"--add-modules=ALL-SYSTEM",
 		"--add-opens",
 		"java.base/java.util=ALL-UNNAMED",
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
+		"-javaagent:" .. path_lombok_jar,
 
 		"-jar",
 		path_to_jar,
@@ -83,8 +83,7 @@ local config = {
 	},
 }
 
-config["on_attach"] = function(client, bufnr)
-	require("user.lsp.handlers").map_java_keys(bufnr)
-end
+config["on_attach"] = require('user.lsp.handlers').on_attach
+config["capabilities"] = require('user.lsp.handlers').capabilities
 
 require("jdtls").start_or_attach(config)

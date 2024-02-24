@@ -10,12 +10,11 @@ M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.default_capabilities(M.capabilities)
 
 M.setup = function()
-
 	local signs = {
 
 		{ name = "DiagnosticSignError", text = "" },
 		{ name = "DiagnosticSignWarn", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
+		{ name = "DiagnosticSignHint", text = "󰰁" },
 		{ name = "DiagnosticSignInfo", text = "" },
 	}
 
@@ -53,7 +52,6 @@ M.setup = function()
 end
 
 local function lsp_keymaps(bufnr)
-
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
 
@@ -73,16 +71,13 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-
 end
 
-M.map_java_keys = function(bufnr)
-
+local function map_java_keys(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
 
-  keymap(bufnr, 'n','<leader>oi', '<cmd>lua require("jdtls").organize_imports()<CR>', opts)
-
+	keymap(bufnr, "n", "<leader>oi", '<cmd>lua require("jdtls").organize_imports()<CR>', opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -95,6 +90,10 @@ M.on_attach = function(client, bufnr)
 	end
 
 	lsp_keymaps(bufnr)
+
+  if client.name == 'jdtls' then
+    map_java_keys(bufnr)
+  end
 
 	local status_ok, illuminate = pcall(require, "illuminate")
 	if not status_ok then
