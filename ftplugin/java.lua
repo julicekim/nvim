@@ -4,6 +4,9 @@ local plugins_dir = jdtls_dir .. "/plugins/"
 local path_to_jar = plugins_dir .. "org.eclipse.equinox.launcher_1.6.700.v20231214-2017.jar"
 local path_lombok_jar = jdtls_dir .. "/lombok.jar"
 
+local java_dap_dir = vim.fn.stdpath('data') .. '/mason/share/java-debug-adapter'
+local java_test_dir = vim.fn.stdpath('data') .. '/mason/share/java-test'
+
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 
 local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -15,6 +18,11 @@ end
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local workspace_dir = vim.fn.stdpath("data") .. "/site/java/workspace-root/" .. project_name
 os.execute("mkdir -p " .. workspace_dir)
+
+local bundles = {
+  vim.fn.glob(java_dap_dir .. 'com.microsoft.java.debug.plugin-*.jar', true)
+}
+vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_dir .. '*.jar', true), "\n"))
 
 local config = {
 	-- The command that starts the language server
@@ -69,7 +77,7 @@ local config = {
 				toString = { template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}" },
 			},
 			flags = { allow_incremental_sync = true },
-			init_options = { bundles = {} },
+			init_options = { bundles = bundles },
 			configuration = {
 				updateBuildConfiguration = "interactive",
 				runtimes = {
@@ -87,3 +95,5 @@ config["on_attach"] = require('user.lsp.handlers').on_attach
 config["capabilities"] = require('user.lsp.handlers').capabilities
 
 require("jdtls").start_or_attach(config)
+require("jdtls").setup_dap({hotcodereplace = "auto"})
+require('dap.ext.vscode').load_launchjs()
