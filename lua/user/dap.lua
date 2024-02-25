@@ -14,11 +14,3 @@ dap.adapters.java = function(callback, config)
   return {process = handle, pid = pid}
 end
 
-local neodev_ok, neodev = pcall(require, "neodev")
-if not neodev_ok then
-	return
-end
-
-neodev.setup({
-  library = {plugins = {"nvim-dap-ui"}, types=true}
-})

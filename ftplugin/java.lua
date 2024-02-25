@@ -21,7 +21,7 @@ local config = {
 	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 	cmd = {
 
-		"/Users/julicekim/.sdkman/candidates/java/17.0.6-zulu/bin/java",
+		"java",
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -75,7 +75,7 @@ local config = {
 				runtimes = {
 					{
 						name = "JavaSE-17",
-						path = "/Users/julicekim/.sdkman/candidates/java/17.0.6-zulu",
+						path = "/Users/julicekim/.sdkman/candidates/java/17.0.5-zulu",
 					},
 				},
 			},

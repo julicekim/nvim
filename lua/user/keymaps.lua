@@ -1,7 +1,6 @@
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
 
-
 local opts = { noremap = true, silent = true }
 
 -- Shorten function name
@@ -24,6 +23,10 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+
+-- split windows
+keymap("n", "ss", ":split<CR>", opts)
+keymap("n", "sv", ":vsplit<CR>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
