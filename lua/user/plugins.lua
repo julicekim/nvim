@@ -121,6 +121,29 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use({
+		"CopilotC-Nvim/CopilotChat.nvim",
+		opts = {
+			prompts = {
+				Explain = "Explain how it works.",
+				Review = "Review the following code and provide concise suggestions.",
+				Tests = "Briefly explain how the selected code works, then generate unit tests.",
+				Refactor = "Refactor the code to improve clarity and readability.",
+			},
+      language ='English'
+		},
+		-- opts = {
+		-- 	show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
+		-- 	debug = true, -- Enable or disable debug mode, the log file will be in ~/.local/state/nvim/CopilotChat.nvim.log
+		-- 	disable_extra_info = "no", -- Disable extra information (e.g: system prompt) in the response.
+		-- 	language = "English", -- Copilot answer language settings when using default prompts. Default language is English.
+		-- 	-- proxy = "socks5://127.0.0.1:3000", -- Proxies requests via https or socks.
+		-- 	-- temperature = 0.1,
+		-- },
+		build = function()
+			vim.notify("Please update the remote plugins by running ':UpdateRemotePlugins', then restart Neovim.")
+		end,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
