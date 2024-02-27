@@ -7,6 +7,8 @@ local path_lombok_jar = jdtls_dir .. "/lombok.jar"
 local java_dap_dir = vim.fn.stdpath('data') .. '/mason/share/java-debug-adapter'
 local java_test_dir = vim.fn.stdpath('data') .. '/mason/share/java-test'
 
+local java_17_home = os.getenv("JAVA_17_HOME")
+
 local root_markers = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 
 local root_dir = require("jdtls.setup").find_root(root_markers)
@@ -83,7 +85,7 @@ local config = {
 				runtimes = {
 					{
 						name = "JavaSE-17",
-						path = "/Users/julicekim/.sdkman/candidates/java/17.0.5-zulu",
+						path = java_17_home,
 					},
 				},
 			},
