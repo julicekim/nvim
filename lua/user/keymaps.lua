@@ -1,7 +1,7 @@
 vim.g.mapleader = "\\"
 vim.g.maplocalleader = "\\"
 
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = false }
 
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
