@@ -92,8 +92,10 @@ return packer.startup(function(use)
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
 
-	use({ "nvim-treesitter/nvim-treesitter" })
 	-- Treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+	})
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
@@ -127,7 +129,7 @@ return packer.startup(function(use)
 				Tests = "Briefly explain how the selected code works, then generate unit tests.",
 				Refactor = "Refactor the code to improve clarity and readability.",
 			},
-      language ='English'
+			language = "English",
 		},
 		-- opts = {
 		-- 	show_help = "yes", -- Show help text for CopilotChatInPlace, default: yes
