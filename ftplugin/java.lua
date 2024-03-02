@@ -31,7 +31,7 @@ local config = {
 	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 	cmd = {
 
-		"java",
+		java_17_home .. "/bin/java",
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -77,6 +77,8 @@ local config = {
 			sources = { organizeImports = { starThreshold = 9999, staticStarThreshold = 9999 } },
 			codeGeneration = {
 				toString = { template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}" },
+        hashCodeEquals = { useInstanceof = true, useJava7Objects = true },
+        useBlocks = true,
 			},
 			flags = { allow_incremental_sync = true },
 			init_options = { bundles = bundles },
