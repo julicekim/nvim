@@ -100,6 +100,6 @@ config["capabilities"] = require('user.lsp.handlers').capabilities
 
 require("jdtls").start_or_attach(config)
 require("jdtls").setup_dap({hotcodereplace = "auto"})
-require("jdtls.dap").setup_dap_main_class_config()
 require('dap.ext.vscode').load_launchjs()
+
 vim.lsp.codelens.refresh()
