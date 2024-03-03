@@ -26,7 +26,7 @@ local bundles = {}
 vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_dir .. "*.jar", true), "\n"))
 vim.list_extend(
 	bundles,
-	vim.split(vim.fn.glob(java_dap_dir .. "com.microsoft.java.debug.plugin-0.51.1.jar", true), "\n")
+	vim.split(vim.fn.glob(java_dap_dir .. "com.microsoft.java.debug.plugin.jar", true), "\n")
 )
 
 -- for k, v in pairs(bundles) do
