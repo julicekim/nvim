@@ -72,9 +72,21 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- Terminal --
--- Better terminal navigation
--- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
--- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
--- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+vim.keymap.set("n", "<leader>tm", function() run_java_test_method() end)
+vim.keymap.set("n", "<leader>TM", function() run_java_test_method(true) end)
+vim.keymap.set("n", "<leader>tc", function() run_java_test_class() end)
+vim.keymap.set("n", "<leader>TC", function() run_java_test_class(true) end)
+vim.keymap.set("n", "<F9>", function() run_spring_boot() end)
+vim.keymap.set("n", "<F10>", function() run_spring_boot(true) end)
+--
+-- -- setup debug
+-- keymap('n', '<leader>b', ':lua require"dap".toggle_breakpoint()<CR>', opts)
+-- keymap('n', '<leader>B', ':lua require"dap".set_breakpoint(vim.fn.input("Condition: "))<CR>', opts)
+-- keymap('n', '<leader>bl', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log: "))<CR>', opts)
+-- keymap('n', '<leader>dr', ':lua require"dap".repl.open()<CR>', opts)
+
+-- move in debug
+keymap('n', '<F5>', ':lua require"dap".continue()<CR>', opts)
+keymap('n', '<F8>', ':lua require"dap".step_over()<CR>', opts)
+keymap('n', '<F7>', ':lua require"dap".step_into()<CR>', opts)
+keymap('n', '<S-F8>', ':lua require"dap".step_out()<CR>', opts)

@@ -103,6 +103,7 @@ return packer.startup(function(use)
 	-- DAP
 	use({ "folke/neodev.nvim" })
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+  use({ "rcarriga/cmp-dap" })
 
 	-- java
 	use({ "mfussenegger/nvim-jdtls" })
