@@ -3,4 +3,6 @@ if not chat_ok then
 	return
 end
 
+print("initialize copilot chat....")
+
 copilotChat.setup({})

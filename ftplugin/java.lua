@@ -24,10 +24,7 @@ os.execute("mkdir -p " .. workspace_dir)
 local bundles = {}
 
 vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_dir .. "*.jar", true), "\n"))
-vim.list_extend(
-	bundles,
-	vim.split(vim.fn.glob(java_dap_dir .. "com.microsoft.java.debug.plugin.jar", true), "\n")
-)
+vim.list_extend(bundles, vim.split(vim.fn.glob(java_dap_dir .. "com.microsoft.java.debug.plugin.jar", true), "\n"))
 
 -- for k, v in pairs(bundles) do
 -- 	print(k, v)
@@ -113,7 +110,13 @@ config["on_attach"] = function(client, bufnr)
 
 	local jdtls_dap_ok, jdtls_dap = pcall(require, "jdtls.dap")
 	if jdtls_dap_ok then
-		jdtls_dap.setup_dap_main_class_configs({ verbose = true })
+		print("initialize main class....")
+		jdtls_dap.setup_dap_main_class_configs({ verbose = false })
+	end
+	local jdtls_test_ok, jdtls_test = pcall(require, "jdtls.test")
+	if jdtls_test_ok then
+		print("initialize test....")
+		jdtls_test.setup_dap_test_configs({ verbose = false })
 	end
 end
 
@@ -123,6 +126,11 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*.java" },
 	callback = function()
 		local _, _ = pcall(vim.lsp.codelens.refresh)
+
+		local jdtls_dap_ok, jdtls_dap = pcall(require, "jdtls.dap")
+		-- if jdtls_dap_ok then
+		-- 	jdtls_dap.setup_dap_main_class_configs({ verbose = false })
+		-- end
 	end,
 })
 

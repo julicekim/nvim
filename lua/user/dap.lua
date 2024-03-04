@@ -35,3 +35,14 @@ end
 dap.listeners.before.event_exited.dapui_config = function()
 	dapui.close()
 end
+
+local opts = { noremap = true, silent = false }
+--
+-- -- Shorten function name
+local keymap = vim.api.nvim_set_keymap
+
+-- move in debug
+keymap('n', '<F5>', ':lua require"dap".continue()<CR>', opts)
+keymap('n', '<F8>', ':lua require"dap".step_over()<CR>', opts)
+keymap('n', '<F7>', ':lua require"dap".step_into()<CR>', opts)
+keymap('n', '<S-F8>', ':lua require"dap".step_out()<CR>', opts)

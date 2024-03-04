@@ -79,8 +79,3 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- keymap('n', '<leader>bl', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log: "))<CR>', opts)
 -- keymap('n', '<leader>dr', ':lua require"dap".repl.open()<CR>', opts)
 
--- move in debug
-keymap('n', '<F5>', ':lua require"dap".continue()<CR>', opts)
-keymap('n', '<F8>', ':lua require"dap".step_over()<CR>', opts)
-keymap('n', '<F7>', ':lua require"dap".step_into()<CR>', opts)
-keymap('n', '<S-F8>', ':lua require"dap".step_out()<CR>', opts)
