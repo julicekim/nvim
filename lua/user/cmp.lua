@@ -111,10 +111,10 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "nvim_lsp", group_index = 2 },
-		{ name = "path", group_index = 2 },
+		{ name = "nvim_lsp", group_index = 1 },
+		{ name = "path", group_index = 3 },
 		{ name = "luasnip", group_index = 2 },
-		{ name = "copilot", group_index = 2 },
+		{ name = "copilot", group_index = 3 },
 		{ name = "buffer", group_index = 2 },
 	},
 	confirm_opts = {
