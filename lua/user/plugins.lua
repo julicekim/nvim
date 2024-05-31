@@ -55,6 +55,8 @@ return packer.startup(function(use)
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 
+	use({ "L3MON4D3/LuaSnip", run = "make install_jsregexp" })
+
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim" })
 	use({ "lunarvim/darkplus.nvim" })
@@ -103,7 +105,7 @@ return packer.startup(function(use)
 	-- DAP
 	use({ "folke/neodev.nvim" })
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
-  use({ "rcarriga/cmp-dap" })
+	use({ "rcarriga/cmp-dap" })
 
 	-- java
 	use({ "mfussenegger/nvim-jdtls" })
