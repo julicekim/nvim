@@ -112,10 +112,10 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp", group_index = 1 },
-		{ name = "path", group_index = 5 },
-		{ name = "luasnip", group_index = 3 },
-		{ name = "copilot", group_index = 4 },
 		{ name = "buffer", group_index = 2 },
+		{ name = "luasnip", group_index = 3 },
+		{ name = "copilot", group_index = 3 },
+		{ name = "path", group_index = 4 },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
@@ -127,8 +127,7 @@ cmp.setup({
 		},
 	},
 	experimental = {
-		ghost_text = false,
-		native_menu = false,
+		ghost_text = true,
 	},
   enabled = function()
     return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"

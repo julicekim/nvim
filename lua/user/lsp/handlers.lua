@@ -49,6 +49,7 @@ M.setup = function()
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 		border = "rounded",
 	})
+
 end
 
 local function lsp_keymaps(bufnr)
@@ -61,7 +62,13 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	keymap(bufnr, "n", "go", "<cmd>lua vim.lsp.buf.code_action{context={only={'source.organizeImports'}},apply=true}<CR>", opts)
+	keymap(
+		bufnr,
+		"n",
+		"go",
+		"<cmd>lua vim.lsp.buf.code_action{context={only={'source.organizeImports'}},apply=true}<CR>",
+		opts
+	)
 
 	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
@@ -103,4 +110,5 @@ M.on_attach = function(client, bufnr)
 
 	illuminate.on_attach(client)
 end
+
 return M

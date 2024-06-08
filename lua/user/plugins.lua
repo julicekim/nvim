@@ -73,6 +73,9 @@ return packer.startup(function(use)
 		after = { "copilot.lua" },
 		config = function()
 			require("copilot_cmp").setup()
+      vim.g.copilot_no_tab_map = true
+      vim.b.copilot_enabled = true
+          
 		end,
 	})
 
