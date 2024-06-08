@@ -55,7 +55,6 @@ return packer.startup(function(use)
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 
-	use({ "L3MON4D3/LuaSnip", run = "make install_jsregexp" })
 
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim" })
@@ -78,7 +77,7 @@ return packer.startup(function(use)
 	})
 
 	-- Snippets
-	use({ "L3MON4D3/LuaSnip" }) --snippet engine
+	use({ "L3MON4D3/LuaSnip", run = "make install_jsregexp" })
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
 	-- LSP
