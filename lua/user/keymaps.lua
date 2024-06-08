@@ -72,6 +72,9 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
+keymap("n","-", "<cmd>foldclose<CR>", opts)
+keymap("n","=", "<cmd>foldopen<CR>", opts)
+
 --
 -- -- setup debug
 -- keymap('n', '<leader>b', ':lua require"dap".toggle_breakpoint()<CR>', opts)

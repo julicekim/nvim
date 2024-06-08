@@ -101,6 +101,9 @@ return packer.startup(function(use)
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 
+  -- folding
+  use({"kevinhwang91/nvim-ufo", requires="kevinhwang91/promise-async"})
+
 	-- DAP
 	use({ "folke/neodev.nvim" })
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
