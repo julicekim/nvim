@@ -36,6 +36,10 @@ local options = {
   sidescrolloff = 8,                       -- minimal number of screen columns either side of cursor if wrap is `false`
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
+
+  foldcolumn = "1",                        -- enable fold column
+  foldlevel = 99,                          -- open all folds by default
+  foldlevelstart = 99,                     -- open all folds by default
 }
 
 for k, v in pairs(options) do
