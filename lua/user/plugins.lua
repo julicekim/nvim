@@ -55,7 +55,6 @@ return packer.startup(function(use)
 	use({ "goolord/alpha-nvim" })
 	use({ "folke/which-key.nvim" })
 
-
 	-- Colorschemes
 	use({ "folke/tokyonight.nvim" })
 	use({ "lunarvim/darkplus.nvim" })
@@ -73,9 +72,8 @@ return packer.startup(function(use)
 		after = { "copilot.lua" },
 		config = function()
 			require("copilot_cmp").setup()
-      vim.g.copilot_no_tab_map = true
-      vim.b.copilot_enabled = true
-          
+			vim.g.copilot_no_tab_map = true
+			vim.b.copilot_enabled = true
 		end,
 	})
 
@@ -88,7 +86,7 @@ return packer.startup(function(use)
 	use({ "williamboman/mason.nvim" }) -- simple to use language server installer
 	use({ "williamboman/mason-lspconfig.nvim" })
 	-- use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
-	use({ "nvimtools/none-ls.nvim", requires="nvimtools/none-ls-extras.nvim" }) -- for formatters and linters
+	use({ "nvimtools/none-ls.nvim", requires = "nvimtools/none-ls-extras.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" })
 
 	-- prettier
@@ -96,6 +94,13 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
+	use({
+		"piersolenski/telescope-import.nvim",
+		requires = "nvim-telescope/telescope.nvim",
+    config = function()
+      require("telescope").load_extension("import")
+    end
+	})
 
 	-- Treesitter
 	use({
@@ -105,8 +110,8 @@ return packer.startup(function(use)
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 
-  -- folding
-  use({"kevinhwang91/nvim-ufo", requires="kevinhwang91/promise-async"})
+	-- folding
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
 	-- DAP
 	use({ "folke/neodev.nvim" })

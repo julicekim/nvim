@@ -113,9 +113,9 @@ cmp.setup({
 	sources = {
 		{ name = "nvim_lsp", group_index = 1 },
 		{ name = "buffer", group_index = 2 },
-		{ name = "luasnip", group_index = 3 },
-		{ name = "copilot", group_index = 3 },
-		{ name = "path", group_index = 4 },
+		{ name = "luasnip", group_index = 1 },
+		{ name = "copilot", group_index = 2 },
+		{ name = "path", group_index = 3 },
 	},
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
