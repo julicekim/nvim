@@ -97,9 +97,9 @@ return packer.startup(function(use)
 	use({
 		"piersolenski/telescope-import.nvim",
 		requires = "nvim-telescope/telescope.nvim",
-    config = function()
-      require("telescope").load_extension("import")
-    end
+		config = function()
+			require("telescope").load_extension("import")
+		end,
 	})
 
 	-- Treesitter
@@ -128,7 +128,7 @@ return packer.startup(function(use)
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({
-				suggestion = { enabled = false },
+				suggestion = { enabled = true },
 				panel = { enabled = false },
 			})
 		end,
